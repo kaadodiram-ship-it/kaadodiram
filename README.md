@@ -1,2 +1,2 @@
-# kaadodiram.github.io
+# kaadodiram
 tamil poetry writer and economist
