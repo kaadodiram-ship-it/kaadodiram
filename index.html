@@ -75,3 +75,340 @@
     </footer>
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramakrishnan V / Kaadodi Ram - Economist and Writer</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fefefe;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: normal;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eaeaea;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 0 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 3rem;
+        }
+
+        .site-title {
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            margin: 2rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Writing Sections */
+        .writing-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .category h3 {
+            margin-top: 0;
+            color: #444;
+        }
+
+        /* Poems Section */
+        .poem {
+            margin-bottom: 3rem;
+            padding-left: 1rem;
+            border-left: 3px solid #eaeaea;
+        }
+
+        .poem p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .poem-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 1rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #eaeaea;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .writing-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">RAMAKRISHNAN V / KAADODI RAM</h1>
+        <p class="tagline">ECONOMIST, TAMIL WRITER AND POET</p>
+        
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#writings">Writings</a></li>
+                <li><a href="#poems">Poems</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-content">
+            <p>Completed Mechanical Engineering and Post Graduation in Economics. Having strong interest for public life, prepared for UPSC Civil Services Examination and failed. Despite failure, trying to explore my strong interest in drama & theatre writing and acting, writing poems, short stories, and cinema screen writing.</p>
+            <p>In addition to that, exploring research space in Economics and writing articles about financial and social economics.</p>
+        </div>
+    </section>
+
+    <section id="writings">
+        <h2>My Writings</h2>
+        <div class="writing-categories">
+            <div class="category">
+                <h3>Economics Articles</h3>
+                <p>Research and articles on financial and social economics</p>
+            </div>
+            <div class="category">
+                <h3>Socio-Political Articles</h3>
+                <p>Analysis of contemporary social and political issues</p>
+            </div>
+            <div class="category">
+                <h3>Tamil Poems</h3>
+                <p>Poetic expressions in Tamil language</p>
+            </div>
+            <div class="category">
+                <h3>English Poems</h3>
+                <p>Poetic works in English language</p>
+            </div>
+            <div class="category">
+                <h3>Tamil Short Stories</h3>
+                <p>Fictional narratives in Tamil</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="poems">
+        <h2>Sample Poems</h2>
+        
+        <div class="poem">
+            <p class="poem-title">1.</p>
+            <p>The war began —</p>
+            <p>No,</p>
+            <p>It was only a test of weapons.</p>
+            <p>Let them go to the marketplace;</p>
+            <p>Every weapon strikes there.</p>
+            <p>The killer was Russian,</p>
+            <p>The dead was Russian.</p>
+        </div>
+        
+        <div class="poem">
+            <p class="poem-title">2.</p>
+            <p>A ceasefire was signed —</p>
+            <p>No.</p>
+            <p>Peace was successfully sold.</p>
+        </div>
+        
+        <div class="poem">
+            <p class="poem-title">3.</p>
+            <p>My liberation lies</p>
+            <p>In leaving behind</p>
+            <p>The burden of thought I carried.</p>
+        </div>
+        
+        <div class="poem">
+            <p class="poem-title">4.</p>
+            <p>Reading — a waterfall</p>
+            <p>Cascading down the mountain peaks of the brain;</p>
+            <p>From there is born a river of thought,</p>
+            <p>And from there, mankind.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:shriramakrishnan98@gmail.com">shriramakrishnan98@gmail.com</a></p>
+            <p>For collaborations, readings, or discussions</p>
+            
+            <div class="social-links">
+                <!-- Add your social media links here when available -->
+                <!-- <a href="#">Twitter</a> -->
+                <!-- <a href="#">Instagram</a> -->
+                <!-- <a href="#">LinkedIn</a> -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ramakrishnan V / Kaadodi Ram. All rights reserved.</p>
+    </footer>
+</body>
+</html>
