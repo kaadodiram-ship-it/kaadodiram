@@ -1,556 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml"> <!-- Assuming Malayalam language for Jeyamohan's site -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramakrishnan V / Kaadodi Ram - Economist and Writer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Jeyamohan.in Style Website</title>
     <style>
         /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Noto Sans Malayalam', 'Helvetica Neue', Arial, sans-serif;
         }
-
-        :root {
-            --primary-color: #2c5530;
-            --secondary-color: #6b8e23;
-            --accent-color: #d4af37;
-            --light-bg: #f8f9fa;
-            --dark-text: #2d3748;
-            --light-text: #718096;
-            --card-bg: #ffffff;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
+        
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.7;
-            color: var(--dark-text);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: normal;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
-        h1 {
-            font-size: 2.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        h2 {
-            font-size: 2.2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-            margin-top: 3rem;
-            margin-bottom: 2rem;
-            display: inline-block;
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d35400;
         }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            color: var(--secondary-color);
+        
+        nav ul {
+            display: flex;
+            list-style: none;
         }
-
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--dark-text);
+        
+        nav ul li {
+            margin-left: 20px;
         }
-
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #d35400;
+        }
+        
+        /* Main Content Styles */
         .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        /* Article Styles */
+        .article {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header {
+            margin-bottom: 20px;
+        }
+        
+        .article-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .article-meta {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .article-content a {
+            color: #d35400;
+            text-decoration: none;
+        }
+        
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: #2c3e50;
+        }
+        
+        .sidebar-links {
+            list-style: none;
+        }
+        
+        .sidebar-links li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .sidebar-links a:hover {
+            color: #d35400;
+        }
+        
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-content {
+            background-color: #fff;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+        
+        .popup-close:hover {
+            color: #333;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
-
-        /* Header */
-        header {
-            padding: 3rem 0 1rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: relative;
-            margin-bottom: 3rem;
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
         }
-
-        .site-title {
-            font-size: 3.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            color: var(--light-text);
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        /* Navigation */
-        nav {
-            margin: 2rem 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
+        
+        .footer-links {
             list-style: none;
-            flex-wrap: wrap;
-            background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 0 auto;
         }
-
-        nav li {
-            margin: 0 1rem;
+        
+        .footer-links li {
+            margin-bottom: 10px;
         }
-
-        nav a {
+        
+        .footer-links a {
+            color: #bdc3c7;
             text-decoration: none;
-            color: var(--dark-text);
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            white-space: nowrap;
         }
-
-        nav a:hover {
-            color: var(--primary-color);
-            background: rgba(44, 85, 48, 0.1);
+        
+        .footer-links a:hover {
+            color: #ecf0f1;
         }
-
-        /* Sections */
-        section {
-            margin-bottom: 4rem;
-            padding: 3rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Articles Sections */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .article-category {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .article-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .article-category h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        /* Poetry Sections */
-        .poetry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .poetry-category {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .poetry-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .poetry-category h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        /* Sample Poems */
-        .poem {
-            margin-bottom: 3rem;
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent-color);
-            background: var(--light-bg);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .poem p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .poem-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        /* Contact Section */
-        .contact-info {
+        
+        .copyright {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 14px;
         }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: bold;
-        }
-
-        .contact-info a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
-
-        .social-links {
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 1rem;
-            color: var(--light-text);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1.5rem;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid #eaeaea;
-            color: var(--light-text);
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Decorative Elements */
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
-            margin: 2rem 0;
-        }
-
-        /* Responsive Design */
+        
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .site-title {
-                font-size: 2.5rem;
+            .container {
+                grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
+            .footer-container {
+                grid-template-columns: 1fr;
             }
             
             nav ul {
                 flex-direction: column;
-                align-items: center;
             }
             
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .articles-grid, .poetry-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            section {
-                padding: 2rem 1rem;
+            nav ul li {
+                margin: 5px 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="site-title">RAMAKRISHNAN V / KAADODI RAM</h1>
-            <p class="tagline">ECONOMIST, TAMIL WRITER AND POET</p>
-            
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">സാഹിത്യലോകം</div>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#economics">Economic Articles</a></li>
-                    <li><a href="#socio-political">Socio-Political Articles</a></li>
-                    <li><a href="#tamil-poetry">Tamil Poetry</a></li>
-                    <li><a href="#english-poetry">English Poetry</a></li>
-                    <li><a href="#tamil-stories">Tamil Short Stories</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="nav-link">മുഖ്യപേജ്</a></li>
+                    <li><a href="#" class="nav-link">ലേഖനങ്ങൾ</a></li>
+                    <li><a href="#" class="nav-link">പുസ്തകങ്ങൾ</a></li>
+                    <li><a href="#" class="nav-link">വീഡിയോ</a></li>
+                    <li><a href="#" class="nav-link">ബ്ലോഗ്</a></li>
+                    <li><a href="#" class="nav-link">എന്നെക്കുറിച്ച്</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <section id="about">
-            <h2>About</h2>
-            <div class="about-content">
-<!-- Trigger/Open The Modal -->
-<a href="#" id="myBtn">Read Article 1</a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Article 1 Title</h2>
-    <p>This is the content of the article. You can write text, images, or even embed videos here.</p>
-  </div>
-</div>
-
-                
-                <p>Completed Mechanical Engineering and Post Graduation in Economics. Having strong interest for public life, prepared for UPSC Civil Services Examination and failed. Despite failure, trying to explore my strong interest in drama & theatre writing and acting, writing poems, short stories, and cinema screen writing.</p>
-                <p>In addition to that, exploring research space in Economics and writing articles about financial and social economics.</p>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="economics">
-            <h2>Economic Articles</h2>
-            <div class="articles-grid">
-                <div class="article-category">
-                    <h3>Financial Economics</h3>
-                    <div class="article-category">
-    <h3>India’s Inflation</h3>
-    <p>India has been experiencing fluctuating inflation rates over the past year, influenced by global commodity prices and domestic demand pressures. The Consumer Price Index (CPI) remains the most widely used measure, capturing the cost changes in essential goods like food, fuel, and housing. Food inflation continues to be a significant contributor, with pulses, vegetables, and edible oils seeing periodic spikes. Fuel prices, particularly diesel and cooking gas, have also impacted household expenditure and production costs. Core inflation, excluding volatile food and fuel, has stayed relatively stable, reflecting moderate demand in the economy. Rising inflation reduces purchasing power, affecting middle- and lower-income households the most. It can also increase the cost of borrowing, influencing investment and consumption patterns. The Reserve Bank of India (RBI) closely monitors inflation to adjust monetary policy and ensure price stability. Interest rate adjustments are a key tool, balancing economic growth with inflation control. Supply-side factors like poor harvests, logistic disruptions, or global oil shocks exacerbate inflationary pressures. Government interventions, such as subsidies and price controls, are often deployed to shield vulnerable populations. Inflation expectations also shape consumer behavior, influencing spending and saving decisions. Persistent high inflation can hurt exports by making domestic goods relatively expensive in international markets. Conversely, moderate inflation may encourage spending and investment, supporting economic growth. Urban and rural inflation trends can diverge due to differing consumption patterns and access to goods. Digitalization and improved supply chains have helped reduce some pricing inefficiencies. Long-term policies focusing on agricultural productivity and energy diversification are crucial for stability. Monitoring inflation remains essential for policymakers, businesses, and households alike. India’s challenge is to maintain growth while keeping prices in check. Understanding inflation’s dynamics allows citizens to plan better and participate meaningfully in economic discourse.</p>
-</div>
-
-                    <p>Analysis of market trends, monetary policies, and financial systems</p>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Articles Section -->
+        <main>
+            <article class="article">
+                <div class="article-header">
+                    <h1 class="article-title">സാഹിത്യത്തിന്റെ ഭാവി</h1>
+                    <div class="article-meta">എഴുതിയത്: ജെയമോഹൻ | തീയതി: ജനുവരി 15, 2023</div>
                 </div>
-                <div class="article-category">
-                    <h3>Social Economics</h3>
-                    <p>Research on economic impacts on society and welfare systems</p>
+                <div class="article-content">
+                    <p>സാഹിത്യത്തിന്റെ ഭാവി എപ്പോഴും ചർച്ചയ്ക്ക് വിധേയമാണ്. ഡിജിറ്റൽ യുഗത്തിൽ, എഴുത്തുകാർക്കും വായനക്കാർക്കും പുതിയ വെല്ലുവിളികളും അവസരങ്ങളും ഉണ്ട്.</p>
+                    
+                    <img src="https://via.placeholder.com/800x400" alt="സാഹിത്യ ചിത്രം">
+                    
+                    <p>ഇന്ന്, <a href="#">ഓൺലൈൻ പ്ലാറ്റ്ഫോമുകൾ</a> വഴി സാഹിത്യം ലോകമെമ്പാടുമുള്ള ആളുകളിലേക്ക് എത്തുന്നു. ഇത് സാഹിത്യത്തിന്റെ പ്രചാരണത്തിന് വലിയ അവസരമാണ്.</p>
+                    
+                    <p>എന്നാൽ, ഡിജിറ്റൽ യുഗത്തിലും സാഹിത്യത്തിന്റെ അടിസ്ഥാനം മാറിയിട്ടില്ല. നല്ല എഴുത്ത് എപ്പോഴും വായനക്കാരുടെ ഹൃദയം സ്പർശിക്കും.</p>
                 </div>
-                <div class="article-category">
-                    <h3>Development Economics</h3>
-                    <p>Studies on economic growth and sustainable development</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="socio-political">
-            <h2>Socio-Political Articles</h2>
-            <div class="articles-grid">
-                <div class="article-category">
-                    <h3>Political Analysis</h3>
-                    <p>Critical examination of contemporary political scenarios</p>
-                </div>
-                <div class="article-category">
-                    <h3>Social Issues</h3>
-                    <p>Writing on relevant social challenges and solutions</p>
-                </div>
-                <div class="article-category">
-                    <h3>Public Policy</h3>
-                    <p>Analysis of government policies and their impacts</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="tamil-poetry">
-            <h2>Tamil Poetry</h2>
-            <div class="poetry-grid">
-                <div class="poetry-category">
-                    <h3>Nature Poems</h3>
-                    <p>Reflections on landscapes and human-nature connections in Tamil</p>
-                </div>
-                <div class="poetry-category">
-                    <h3>Emotional Verses</h3>
-                    <p>Exploring human emotions and psychological depths</p>
-                </div>
-                <div class="poetry-category">
-                    <h3>Social Commentary</h3>
-                    <p>Poetic observations on contemporary society</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="english-poetry">
-            <h2>English Poetry</h2>
-
-
-            <!-- Trigger/Open The Modal -->
-<a href="#" id="myBtn">Read Article 1</a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Article 1 Title</h2>
-    <p>This is the content of the article. You can write text, images, or even embed videos here.</p>
-  </div>
-</div>
-
-            <div class="poem">
-                <p class="poem-title">1.</p>
-                <p>The war began —</p>
-                <p>No,</p>
-                <p>It was only a test of weapons.</p>
-                <p>Let them go to the marketplace;</p>
-                <p>Every weapon strikes there.</p>
-                <p>The killer was Russian,</p>
-                <p>The dead was Russian.</p>
-            </div>
-
-            <!-- Trigger/Open The Modal -->
-<a href="#" id="myBtn">Read Article 1</a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Article 1 Title</h2>
-    <p>This is the content of the article. You can write text, images, or even embed videos here.</p>
-  </div>
-</div>
-
+            </article>
             
-            <div class="poem">
-                <p class="poem-title">2.</p>
-                <p>A ceasefire was signed —</p>
-                <p>No.</p>
-                <p>Peace was successfully sold.</p>
-            </div>
-
-
-            <!-- Trigger/Open The Modal -->
-<a href="#" id="myBtn">Read Article 1</a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Article 1 Title</h2>
-    <p>This is the content of the article. You can write text, images, or even embed videos here.</p>
-  </div>
-</div>
-
-            <div class="poem">
-                <p class="poem-title">3.</p>
-                <p>My liberation lies</p>
-                <p>In leaving behind</p>
-                <p>The burden of thought I carried.</p>
+            <article class="article">
+                <div class="article-header">
+                    <h1 class="article-title">മലയാള സാഹിത്യത്തിന്റെ പാരമ്പര്യം</h1>
+                    <div class="article-meta">എഴുതിയത്: ജെയമോഹൻ | തീയതി: ഡിസംബർ 10, 2022</div>
+                </div>
+                <div class="article-content">
+                    <p>മലയാള സാഹിത്യത്തിന് സമ്പന്നമായ ഒരു പാരമ്പര്യമുണ്ട്. കവിത മുതൽ നോവൽ വരെ, മലയാളം സാഹിത്യരൂപങ്ങളിൽ മികച്ച സംഭാവനകൾ നൽകിയിട്ടുണ്ട്.</p>
+                    
+                    <p>ആധുനിക മലയാള സാഹിത്യം പാരമ്പര്യത്തോട് വിശ്വസ്തത പുലർത്തിക്കൊണ്ട് തന്നെ സമകാലിക വിഷയങ്ങളെ നേരിടുന്നു.</p>
+                    
+                    <img src="https://via.placeholder.com/800x400" alt="മലയാള സാഹിത്യം">
+                    
+                    <p>മലയാള സാഹിത്യത്തിന്റെ ഭാവിയെക്കുറിച്ച് കൂടുതൽ അറിയാൻ <a href="#" class="popup-trigger" data-popup="future">ഈ ലിങ്ക്</a> ക്ലിക്ക് ചെയ്യുക.</p>
+                </div>
+            </article>
+        </main>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">ജനപ്രിയ ലേഖനങ്ങൾ</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#">സാഹിത്യ വിമർശനത്തിന്റെ കല</a></li>
+                    <li><a href="#">ആധുനിക കഥാസാഹിത്യം</a></li>
+                    <li><a href="#">മലയാളത്തിലെ ഫാന്റസി സാഹിത്യം</a></li>
+                    <li><a href="#">സാഹിത്യത്തിലെ സ്ത്രീവാദം</a></li>
+                    <li><a href="#">എഴുത്തുകാരന്റെ ദൈനംദിനം</a></li>
+                </ul>
             </div>
             
-            <div class="poem">
-                <p class="poem-title">4.</p>
-                <p>Reading — a waterfall</p>
-                <p>Cascading down the mountain peaks of the brain;</p>
-                <p>From there is born a river of thought,</p>
-                <p>And from there, mankind.</p>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">വർഗ്ഗങ്ങൾ</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#">കവിത</a></li>
+                    <li><a href="#">കഥ</a></li>
+                    <li><a href="#">നോവൽ</a></li>
+                    <li><a href="#">വിമർശനം</a></li>
+                    <li><a href="#">യാത്രാവിവരണം</a></li>
+                </ul>
             </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="tamil-stories">
-            <h2>Tamil Short Stories</h2>
-            <div class="articles-grid">
-                <div class="article-category">
-                    <h3>Contemporary Fiction</h3>
-                    <p>Modern narratives reflecting current Tamil society</p>
-                </div>
-                <div class="article-category">
-                    <h3>Cultural Stories</h3>
-                    <p>Tales rooted in Tamil traditions and values</p>
-                </div>
-                <div class="article-category">
-                    <h3>Experimental Narratives</h3>
-                    <p>Innovative storytelling techniques in Tamil literature</p>
-                </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">ആർക്കൈവുകൾ</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#">2023</a></li>
+                    <li><a href="#">2022</a></li>
+                    <li><a href="#">2021</a></li>
+                    <li><a href="#">2020</a></li>
+                    <li><a href="#">മുമ്പത്തെ വർഷങ്ങൾ</a></li>
+                </ul>
             </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:shriramakrishnan98@gmail.com">shriramakrishnan98@gmail.com</a></p>
-                <p>For collaborations, readings, or discussions</p>
-                
-                <div class="social-links">
-                    <!-- Add your social media links here when available -->
-                    <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
-                    <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
-                    <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
-                </div>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ലിങ്കുകൾ</h3>
+                <ul class="footer-links">
+                    <li><a href="#">മുഖ്യപേജ്</a></li>
+                    <li><a href="#">ലേഖനങ്ങൾ</a></li>
+                    <li><a href="#">പുസ്തകങ്ങൾ</a></li>
+                    <li><a href="#">വീഡിയോ</a></li>
+                </ul>
             </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2024 Ramakrishnan V / Kaadodi Ram. All rights reserved.</p>
-        </footer>
+            
+            <div class="footer-section">
+                <h3>സോഷ്യൽ മീഡിയ</h3>
+                <ul class="footer-links">
+                    <li><a href="#">ഫേസ്ബുക്ക്</a></li>
+                    <li><a href="#">ട്വിറ്റർ</a></li>
+                    <li><a href="#">യൂട്യൂബ്</a></li>
+                    <li><a href="#">ഇൻസ്റ്റാഗ്രാം</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>സമ്പർക്കം</h3>
+                <ul class="footer-links">
+                    <li><a href="#">ഇമെയിൽ</a></li>
+                    <li><a href="#">ഫോൺ</a></li>
+                    <li><a href="#">വിലാസം</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 സാഹിത്യലോകം. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.
+        </div>
+    </footer>
+    
+    <!-- Popup Elements -->
+    <div id="future-popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <h2>മലയാള സാഹിത്യത്തിന്റെ ഭാവി</h2>
+            <p>മലയാള സാഹിത്യത്തിന്റെ ഭാവി ഇന്ന് നമ്മൾ എടുക്കുന്ന തീരുമാനങ്ങളെ ആശ്രയിച്ചിരിക്കുന്നു. ഡിജിറ്റൽ യുഗത്തിൽ, എഴുത്തുകാർക്ക് പുതിയ അവസരങ്ങൾ ലഭിക്കുകയും, വായനക്കാർക്ക് വിവിധ ഫോർമാറ്റുകളിൽ സാഹിത്യം അനുഭവിക്കാനാകുകയും ചെയ്യുന്നു.</p>
+            <p>എന്നാൽ, സാങ്കേതികവിദ്യയുടെ പുരോഗതി കാരണം സാഹിത്യത്തിന്റെ അടിസ്ഥാന മൂല്യങ്ങൾ മാറ്റമില്ലാതെ തുടരണം. നല്ല എഴുത്ത് എപ്പോഴും പ്രസക്തമായിരിക്കും.</p>
+        </div>
+    </div>
+    
+    <div id="subscribe-popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <h2>വാര്ത്താക്കുറിപ്പ് സബ്സ്ക്രൈബ് ചെയ്യുക</h2>
+            <p>ഞങ്ങളുടെ ഏറ്റവും പുതിയ ലേഖനങ്ങളും അപ്ഡേറ്റുകളും നിങ്ങളുടെ ഇമെയിലിൽ ലഭിക്കാൻ സബ്സ്ക്രൈബ് ചെയ്യുക.</p>
+            <form>
+                <input type="email" placeholder="നിങ്ങളുടെ ഇമെയിൽ വിലാസം" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="submit" style="background-color: #d35400; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">സബ്സ്ക്രൈബ് ചെയ്യുക</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        // Simple smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
-                    behavior: 'smooth'
+        // Popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all popup triggers and popups
+            const popupTriggers = document.querySelectorAll('.popup-trigger');
+            const popups = document.querySelectorAll('.popup');
+            const closeButtons = document.querySelectorAll('.popup-close');
+            
+            // Open popup when trigger is clicked
+            popupTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const popupId = this.getAttribute('data-popup');
+                    document.getElementById(popupId + '-popup').style.display = 'flex';
                 });
             });
+            
+            // Close popup when close button is clicked
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.closest('.popup').style.display = 'none';
+                });
+            });
+            
+            // Close popup when clicking outside the content
+            popups.forEach(popup => {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Show subscribe popup after 5 seconds
+            setTimeout(() => {
+                document.getElementById('subscribe-popup').style.display = 'flex';
+            }, 5000);
         });
     </script>
 </body>
