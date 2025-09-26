@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="ml"> <!-- Assuming Malayalam language for Jeyamohan's site -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeyamohan.in Style Website</title>
+    <title>Ramakrishnan V / Kaadodi Ram - Economist and Writer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Noto Sans Malayalam', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
         
         body {
@@ -38,9 +39,9 @@
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #d35400;
+            color: #2c5530;
         }
         
         nav ul {
@@ -57,10 +58,13 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 3px;
         }
         
         nav ul li a:hover {
-            color: #d35400;
+            color: #2c5530;
+            background-color: rgba(44, 85, 48, 0.1);
         }
         
         /* Main Content Styles */
@@ -80,16 +84,24 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             padding: 25px;
             margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .article-header {
             margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
         }
         
         .article-title {
             font-size: 24px;
             margin-bottom: 10px;
-            color: #2c3e50;
+            color: #2c5530;
         }
         
         .article-meta {
@@ -108,11 +120,13 @@
             height: auto;
             margin: 20px 0;
             border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .article-content a {
-            color: #d35400;
+            color: #6b8e23;
             text-decoration: none;
+            font-weight: 500;
         }
         
         .article-content a:hover {
@@ -136,7 +150,7 @@
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
-            color: #2c3e50;
+            color: #2c5530;
         }
         
         .sidebar-links {
@@ -145,16 +159,20 @@
         
         .sidebar-links li {
             margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
         }
         
         .sidebar-links a {
             color: #333;
             text-decoration: none;
             transition: color 0.3s;
+            display: block;
         }
         
         .sidebar-links a:hover {
-            color: #d35400;
+            color: #6b8e23;
+            padding-left: 5px;
         }
         
         /* Popup Styles */
@@ -175,11 +193,12 @@
             background-color: #fff;
             border-radius: 5px;
             width: 90%;
-            max-width: 600px;
+            max-width: 700px;
             padding: 30px;
             position: relative;
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
         }
         
         .popup-close {
@@ -189,15 +208,52 @@
             font-size: 24px;
             cursor: pointer;
             color: #7f8c8d;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .popup-close:hover {
             color: #333;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+        }
+        
+        .popup-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c5530;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        /* Poetry Styles */
+        .poem {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-left: 4px solid #d4af37;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .poem p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .poem-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c5530;
         }
         
         /* Footer Styles */
         footer {
-            background-color: #2c3e50;
+            background-color: #2c5530;
             color: #ecf0f1;
             padding: 40px 0;
             margin-top: 50px;
@@ -215,6 +271,7 @@
         .footer-section h3 {
             margin-bottom: 20px;
             font-size: 18px;
+            color: #d4af37;
         }
         
         .footer-links {
@@ -238,9 +295,36 @@
             text-align: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #34495e;
+            border-top: 1px solid #3e6b47;
             color: #bdc3c7;
             font-size: 14px;
+        }
+        
+        /* Category Grid Styles */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .category-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #6b8e23;
+            cursor: pointer;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-item h3 {
+            margin-top: 0;
+            color: #2c5530;
         }
         
         /* Responsive Styles */
@@ -255,10 +339,24 @@
             
             nav ul {
                 flex-direction: column;
+                align-items: center;
             }
             
             nav ul li {
                 margin: 5px 0;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -267,15 +365,16 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">സാഹിത്യലോകം</div>
+            <div class="logo">Ramakrishnan V / Kaadodi Ram</div>
             <nav>
                 <ul>
-                    <li><a href="#" class="nav-link">മുഖ്യപേജ്</a></li>
-                    <li><a href="#" class="nav-link">ലേഖനങ്ങൾ</a></li>
-                    <li><a href="#" class="nav-link">പുസ്തകങ്ങൾ</a></li>
-                    <li><a href="#" class="nav-link">വീഡിയോ</a></li>
-                    <li><a href="#" class="nav-link">ബ്ലോഗ്</a></li>
-                    <li><a href="#" class="nav-link">എന്നെക്കുറിച്ച്</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#economics">Economic Articles</a></li>
+                    <li><a href="#socio-political">Socio-Political</a></li>
+                    <li><a href="#tamil-poetry">Tamil Poetry</a></li>
+                    <li><a href="#english-poetry">English Poetry</a></li>
+                    <li><a href="#tamil-stories">Tamil Stories</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -285,71 +384,226 @@
     <div class="container">
         <!-- Articles Section -->
         <main>
-            <article class="article">
+            <!-- About Section -->
+            <section id="about" class="article">
                 <div class="article-header">
-                    <h1 class="article-title">സാഹിത്യത്തിന്റെ ഭാവി</h1>
-                    <div class="article-meta">എഴുതിയത്: ജെയമോഹൻ | തീയതി: ജനുവരി 15, 2023</div>
+                    <h1 class="article-title">About Ramakrishnan V / Kaadodi Ram</h1>
+                    <div class="article-meta">Economist, Tamil Writer and Poet</div>
                 </div>
                 <div class="article-content">
-                    <p>സാഹിത്യത്തിന്റെ ഭാവി എപ്പോഴും ചർച്ചയ്ക്ക് വിധേയമാണ്. ഡിജിറ്റൽ യുഗത്തിൽ, എഴുത്തുകാർക്കും വായനക്കാർക്കും പുതിയ വെല്ലുവിളികളും അവസരങ്ങളും ഉണ്ട്.</p>
+                    <p>Completed Mechanical Engineering and Post Graduation in Economics. Having strong interest for public life, prepared for UPSC Civil Services Examination and failed. Despite failure, trying to explore my strong interest in drama & theatre writing and acting, writing poems, short stories, and cinema screen writing.</p>
                     
-                    <img src="https://via.placeholder.com/800x400" alt="സാഹിത്യ ചിത്രം">
+                    <p>In addition to that, exploring research space in Economics and writing articles about financial and social economics.</p>
                     
-                    <p>ഇന്ന്, <a href="#">ഓൺലൈൻ പ്ലാറ്റ്ഫോമുകൾ</a> വഴി സാഹിത്യം ലോകമെമ്പാടുമുള്ള ആളുകളിലേക്ക് എത്തുന്നു. ഇത് സാഹിത്യത്തിന്റെ പ്രചാരണത്തിന് വലിയ അവസരമാണ്.</p>
-                    
-                    <p>എന്നാൽ, ഡിജിറ്റൽ യുഗത്തിലും സാഹിത്യത്തിന്റെ അടിസ്ഥാനം മാറിയിട്ടില്ല. നല്ല എഴുത്ത് എപ്പോഴും വായനക്കാരുടെ ഹൃദയം സ്പർശിക്കും.</p>
+                    <p>My work spans across multiple domains including economic analysis, socio-political commentary, and creative writing in both Tamil and English.</p>
                 </div>
-            </article>
+            </section>
             
-            <article class="article">
+            <!-- Economic Articles -->
+            <section id="economics" class="article">
                 <div class="article-header">
-                    <h1 class="article-title">മലയാള സാഹിത്യത്തിന്റെ പാരമ്പര്യം</h1>
-                    <div class="article-meta">എഴുതിയത്: ജെയമോഹൻ | തീയതി: ഡിസംബർ 10, 2022</div>
+                    <h1 class="article-title">Economic Articles</h1>
+                    <div class="article-meta">Analysis of financial and social economics</div>
                 </div>
                 <div class="article-content">
-                    <p>മലയാള സാഹിത്യത്തിന് സമ്പന്നമായ ഒരു പാരമ്പര്യമുണ്ട്. കവിത മുതൽ നോവൽ വരെ, മലയാളം സാഹിത്യരൂപങ്ങളിൽ മികച്ച സംഭാവനകൾ നൽകിയിട്ടുണ്ട്.</p>
+                    <p>My economic writings focus on various aspects of financial systems, market trends, and social welfare economics. Here are some categories of my work:</p>
                     
-                    <p>ആധുനിക മലയാള സാഹിത്യം പാരമ്പര്യത്തോട് വിശ്വസ്തത പുലർത്തിക്കൊണ്ട് തന്നെ സമകാലിക വിഷയങ്ങളെ നേരിടുന്നു.</p>
+                    <div class="category-grid">
+                        <div class="category-item" data-popup="financial-economics">
+                            <h3>Financial Economics</h3>
+                            <p>Analysis of market trends, monetary policies, and financial systems</p>
+                        </div>
+                        <div class="category-item" data-popup="social-economics">
+                            <h3>Social Economics</h3>
+                            <p>Research on economic impacts on society and welfare systems</p>
+                        </div>
+                        <div class="category-item" data-popup="development-economics">
+                            <h3>Development Economics</h3>
+                            <p>Studies on economic growth and sustainable development</p>
+                        </div>
+                    </div>
                     
-                    <img src="https://via.placeholder.com/800x400" alt="മലയാള സാഹിത്യം">
-                    
-                    <p>മലയാള സാഹിത്യത്തിന്റെ ഭാവിയെക്കുറിച്ച് കൂടുതൽ അറിയാൻ <a href="#" class="popup-trigger" data-popup="future">ഈ ലിങ്ക്</a> ക്ലിക്ക് ചെയ്യുക.</p>
+                    <p>For a detailed discussion on any of these topics, <a href="#" class="popup-trigger" data-popup="economics-contact">please contact me</a>.</p>
                 </div>
-            </article>
+            </section>
+            
+            <!-- Socio-Political Articles -->
+            <section id="socio-political" class="article">
+                <div class="article-header">
+                    <h1 class="article-title">Socio-Political Articles</h1>
+                    <div class="article-meta">Critical examination of contemporary issues</div>
+                </div>
+                <div class="article-content">
+                    <p>My socio-political writings examine the intersection of society, politics, and public policy. These articles provide critical perspectives on contemporary issues.</p>
+                    
+                    <div class="category-grid">
+                        <div class="category-item" data-popup="political-analysis">
+                            <h3>Political Analysis</h3>
+                            <p>Critical examination of contemporary political scenarios</p>
+                        </div>
+                        <div class="category-item" data-popup="social-issues">
+                            <h3>Social Issues</h3>
+                            <p>Writing on relevant social challenges and solutions</p>
+                        </div>
+                        <div class="category-item" data-popup="public-policy">
+                            <h3>Public Policy</h3>
+                            <p>Analysis of government policies and their impacts</p>
+                        </div>
+                    </div>
+                    
+                    <p>These articles aim to foster informed discussions about the pressing issues of our time.</p>
+                </div>
+            </section>
+            
+            <!-- Tamil Poetry -->
+            <section id="tamil-poetry" class="article">
+                <div class="article-header">
+                    <h1 class="article-title">Tamil Poetry</h1>
+                    <div class="article-meta">Expressions in Tamil literature</div>
+                </div>
+                <div class="article-content">
+                    <p>My Tamil poetry explores various themes from nature to human emotions, often with social commentary woven into the verses.</p>
+                    
+                    <div class="category-grid">
+                        <div class="category-item" data-popup="nature-poems">
+                            <h3>Nature Poems</h3>
+                            <p>Reflections on landscapes and human-nature connections in Tamil</p>
+                        </div>
+                        <div class="category-item" data-popup="emotional-verses">
+                            <h3>Emotional Verses</h3>
+                            <p>Exploring human emotions and psychological depths</p>
+                        </div>
+                        <div class="category-item" data-popup="social-commentary">
+                            <h3>Social Commentary</h3>
+                            <p>Poetic observations on contemporary society</p>
+                        </div>
+                    </div>
+                    
+                    <p>Tamil poetry allows me to connect with cultural roots while expressing contemporary thoughts and feelings.</p>
+                </div>
+            </section>
+            
+            <!-- English Poetry -->
+            <section id="english-poetry" class="article">
+                <div class="article-header">
+                    <h1 class="article-title">English Poetry</h1>
+                    <div class="article-meta">Sample poems in English</div>
+                </div>
+                <div class="article-content">
+                    <p>Here are some of my English poems that explore themes of conflict, peace, and human consciousness.</p>
+                    
+                    <div class="poem">
+                        <p class="poem-title">1.</p>
+                        <p>The war began —</p>
+                        <p>No,</p>
+                        <p>It was only a test of weapons.</p>
+                        <p>Let them go to the marketplace;</p>
+                        <p>Every weapon strikes there.</p>
+                        <p>The killer was Russian,</p>
+                        <p>The dead was Russian.</p>
+                    </div>
+                    
+                    <div class="poem">
+                        <p class="poem-title">2.</p>
+                        <p>A ceasefire was signed —</p>
+                        <p>No.</p>
+                        <p>Peace was successfully sold.</p>
+                    </div>
+                    
+                    <div class="poem">
+                        <p class="poem-title">3.</p>
+                        <p>My liberation lies</p>
+                        <p>In leaving behind</p>
+                        <p>The burden of thought I carried.</p>
+                    </div>
+                    
+                    <div class="poem">
+                        <p class="poem-title">4.</p>
+                        <p>Reading — a waterfall</p>
+                        <p>Cascading down the mountain peaks of the brain;</p>
+                        <p>From there is born a river of thought,</p>
+                        <p>And from there, mankind.</p>
+                    </div>
+                    
+                    <p>For more poems or to discuss my poetry, <a href="#" class="popup-trigger" data-popup="poetry-contact">please get in touch</a>.</p>
+                </div>
+            </section>
+            
+            <!-- Tamil Stories -->
+            <section id="tamil-stories" class="article">
+                <div class="article-header">
+                    <h1 class="article-title">Tamil Short Stories</h1>
+                    <div class="article-meta">Narratives in Tamil literature</div>
+                </div>
+                <div class="article-content">
+                    <p>My Tamil short stories explore various aspects of contemporary life, cultural traditions, and experimental narratives.</p>
+                    
+                    <div class="category-grid">
+                        <div class="category-item" data-popup="contemporary-fiction">
+                            <h3>Contemporary Fiction</h3>
+                            <p>Modern narratives reflecting current Tamil society</p>
+                        </div>
+                        <div class="category-item" data-popup="cultural-stories">
+                            <h3>Cultural Stories</h3>
+                            <p>Tales rooted in Tamil traditions and values</p>
+                        </div>
+                        <div class="category-item" data-popup="experimental-narratives">
+                            <h3>Experimental Narratives</h3>
+                            <p>Innovative storytelling techniques in Tamil literature</p>
+                        </div>
+                    </div>
+                    
+                    <p>These stories aim to capture the essence of Tamil culture while addressing universal human experiences.</p>
+                </div>
+            </section>
+            
+            <!-- Contact -->
+            <section id="contact" class="article">
+                <div class="article-header">
+                    <h1 class="article-title">Contact</h1>
+                    <div class="article-meta">Get in touch for collaborations or discussions</div>
+                </div>
+                <div class="article-content">
+                    <p>Email: <a href="mailto:shriramakrishnan98@gmail.com">shriramakrishnan98@gmail.com</a></p>
+                    <p>For collaborations, readings, or discussions about my work, please feel free to reach out.</p>
+                    
+                    <p>I'm particularly interested in connecting with publishers, literary journals, and academic institutions for potential collaborations.</p>
+                </div>
+            </section>
         </main>
         
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section">
-                <h3 class="sidebar-title">ജനപ്രിയ ലേഖനങ്ങൾ</h3>
+                <h3 class="sidebar-title">Popular Articles</h3>
                 <ul class="sidebar-links">
-                    <li><a href="#">സാഹിത്യ വിമർശനത്തിന്റെ കല</a></li>
-                    <li><a href="#">ആധുനിക കഥാസാഹിത്യം</a></li>
-                    <li><a href="#">മലയാളത്തിലെ ഫാന്റസി സാഹിത്യം</a></li>
-                    <li><a href="#">സാഹിത്യത്തിലെ സ്ത്രീവാദം</a></li>
-                    <li><a href="#">എഴുത്തുകാരന്റെ ദൈനംദിനം</a></li>
+                    <li><a href="#">The Economics of Sustainable Development</a></li>
+                    <li><a href="#">Tamil Poetry in the Digital Age</a></li>
+                    <li><a href="#">Social Welfare Policies Analysis</a></li>
+                    <li><a href="#">Contemporary Political Landscape</a></li>
+                    <li><a href="#">The Art of Short Story Writing</a></li>
                 </ul>
             </div>
             
             <div class="sidebar-section">
-                <h3 class="sidebar-title">വർഗ്ഗങ്ങൾ</h3>
+                <h3 class="sidebar-title">Categories</h3>
                 <ul class="sidebar-links">
-                    <li><a href="#">കവിത</a></li>
-                    <li><a href="#">കഥ</a></li>
-                    <li><a href="#">നോവൽ</a></li>
-                    <li><a href="#">വിമർശനം</a></li>
-                    <li><a href="#">യാത്രാവിവരണം</a></li>
+                    <li><a href="#economics">Economic Articles</a></li>
+                    <li><a href="#socio-political">Socio-Political</a></li>
+                    <li><a href="#tamil-poetry">Tamil Poetry</a></li>
+                    <li><a href="#english-poetry">English Poetry</a></li>
+                    <li><a href="#tamil-stories">Tamil Stories</a></li>
                 </ul>
             </div>
             
             <div class="sidebar-section">
-                <h3 class="sidebar-title">ആർക്കൈവുകൾ</h3>
+                <h3 class="sidebar-title">Archives</h3>
                 <ul class="sidebar-links">
                     <li><a href="#">2023</a></li>
                     <li><a href="#">2022</a></li>
                     <li><a href="#">2021</a></li>
                     <li><a href="#">2020</a></li>
-                    <li><a href="#">മുമ്പത്തെ വർഷങ്ങൾ</a></li>
+                    <li><a href="#">Earlier Years</a></li>
                 </ul>
             </div>
         </aside>
@@ -359,58 +613,100 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3>ലിങ്കുകൾ</h3>
+                <h3>Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#">മുഖ്യപേജ്</a></li>
-                    <li><a href="#">ലേഖനങ്ങൾ</a></li>
-                    <li><a href="#">പുസ്തകങ്ങൾ</a></li>
-                    <li><a href="#">വീഡിയോ</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#economics">Economic Articles</a></li>
+                    <li><a href="#socio-political">Socio-Political</a></li>
+                    <li><a href="#tamil-poetry">Tamil Poetry</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>സോഷ്യൽ മീഡിയ</h3>
+                <h3>Writings</h3>
                 <ul class="footer-links">
-                    <li><a href="#">ഫേസ്ബുക്ക്</a></li>
-                    <li><a href="#">ട്വിറ്റർ</a></li>
-                    <li><a href="#">യൂട്യൂബ്</a></li>
-                    <li><a href="#">ഇൻസ്റ്റാഗ്രാം</a></li>
+                    <li><a href="#english-poetry">English Poetry</a></li>
+                    <li><a href="#tamil-stories">Tamil Stories</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                    <li><a href="#">Literary Criticism</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>സമ്പർക്കം</h3>
+                <h3>Contact</h3>
                 <ul class="footer-links">
-                    <li><a href="#">ഇമെയിൽ</a></li>
-                    <li><a href="#">ഫോൺ</a></li>
-                    <li><a href="#">വിലാസം</a></li>
+                    <li><a href="mailto:shriramakrishnan98@gmail.com">Email</a></li>
+                    <li><a href="#">Phone</a></li>
+                    <li><a href="#">Address</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2023 സാഹിത്യലോകം. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.
+            &copy; 2024 Ramakrishnan V / Kaadodi Ram. All rights reserved.
         </div>
     </footer>
     
     <!-- Popup Elements -->
-    <div id="future-popup" class="popup">
+    <div id="financial-economics-popup" class="popup">
         <div class="popup-content">
-            <span class="popup-close">&times;</span>
-            <h2>മലയാള സാഹിത്യത്തിന്റെ ഭാവി</h2>
-            <p>മലയാള സാഹിത്യത്തിന്റെ ഭാവി ഇന്ന് നമ്മൾ എടുക്കുന്ന തീരുമാനങ്ങളെ ആശ്രയിച്ചിരിക്കുന്നു. ഡിജിറ്റൽ യുഗത്തിൽ, എഴുത്തുകാർക്ക് പുതിയ അവസരങ്ങൾ ലഭിക്കുകയും, വായനക്കാർക്ക് വിവിധ ഫോർമാറ്റുകളിൽ സാഹിത്യം അനുഭവിക്കാനാകുകയും ചെയ്യുന്നു.</p>
-            <p>എന്നാൽ, സാങ്കേതികവിദ്യയുടെ പുരോഗതി കാരണം സാഹിത്യത്തിന്റെ അടിസ്ഥാന മൂല്യങ്ങൾ മാറ്റമില്ലാതെ തുടരണം. നല്ല എഴുത്ത് എപ്പോഴും പ്രസക്തമായിരിക്കും.</p>
+            <button class="popup-close">&times;</button>
+            <h2 class="popup-title">Financial Economics</h2>
+            <p>My writings in financial economics explore the intricate workings of markets, monetary policies, and financial systems. These articles analyze how economic principles apply to financial institutions and markets.</p>
+            <p>Key topics include:</p>
+            <ul>
+                <li>Market trends and analysis</li>
+                <li>Monetary policy impacts</li>
+                <li>Financial system stability</li>
+                <li>Investment strategies</li>
+                <li>Risk management</li>
+            </ul>
+            <p>For access to specific articles or research papers, please contact me directly.</p>
+        </div>
+    </div>
+    
+    <div id="social-economics-popup" class="popup">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <h2 class="popup-title">Social Economics</h2>
+            <p>Social economics examines the relationship between economic activity and social life. My research in this area focuses on how economic policies affect social welfare and community development.</p>
+            <p>Areas of interest include:</p>
+            <ul>
+                <li>Welfare economics</li>
+                <li>Income inequality</li>
+                <li>Social justice in economic systems</li>
+                <li>Community development economics</li>
+                <li>Education and health economics</li>
+            </ul>
+            <p>These writings aim to bridge the gap between economic theory and social reality.</p>
+        </div>
+    </div>
+    
+    <div id="economics-contact-popup" class="popup">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <h2 class="popup-title">Economics Articles Contact</h2>
+            <p>If you're interested in reading my economics articles or discussing economic topics, please reach out via email.</p>
+            <p>I'm available for:</p>
+            <ul>
+                <li>Academic collaborations</li>
+                <li>Research discussions</li>
+                <li>Publication opportunities</li>
+                <li>Speaking engagements</li>
+            </ul>
+            <p>Email: <a href="mailto:shriramakrishnan98@gmail.com">shriramakrishnan98@gmail.com</a></p>
         </div>
     </div>
     
     <div id="subscribe-popup" class="popup">
         <div class="popup-content">
-            <span class="popup-close">&times;</span>
-            <h2>വാര്ത്താക്കുറിപ്പ് സബ്സ്ക്രൈബ് ചെയ്യുക</h2>
-            <p>ഞങ്ങളുടെ ഏറ്റവും പുതിയ ലേഖനങ്ങളും അപ്ഡേറ്റുകളും നിങ്ങളുടെ ഇമെയിലിൽ ലഭിക്കാൻ സബ്സ്ക്രൈബ് ചെയ്യുക.</p>
+            <button class="popup-close">&times;</button>
+            <h2 class="popup-title">Subscribe to Updates</h2>
+            <p>Stay updated with my latest articles, poems, and research by subscribing to my newsletter.</p>
             <form>
-                <input type="email" placeholder="നിങ്ങളുടെ ഇമെയിൽ വിലാസം" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
-                <button type="submit" style="background-color: #d35400; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">സബ്സ്ക്രൈബ് ചെയ്യുക</button>
+                <input type="email" placeholder="Your email address" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="submit" style="background-color: #6b8e23; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; width: 100%;">Subscribe</button>
             </form>
+            <p style="font-size: 14px; margin-top: 10px;">I respect your privacy and will never share your email address.</p>
         </div>
     </div>
 
@@ -418,7 +714,7 @@
         // Popup functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Get all popup triggers and popups
-            const popupTriggers = document.querySelectorAll('.popup-trigger');
+            const popupTriggers = document.querySelectorAll('.popup-trigger, .category-item');
             const popups = document.querySelectorAll('.popup');
             const closeButtons = document.querySelectorAll('.popup-close');
             
@@ -451,6 +747,20 @@
             setTimeout(() => {
                 document.getElementById('subscribe-popup').style.display = 'flex';
             }, 5000);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
 </body>
